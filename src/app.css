@@ -1,0 +1,57 @@
+body {
+  background-color: #d0f2fa;
+  margin: 0;
+  white-space: pre-wrap;
+  font-weight: bold;
+  font-size: 60px;
+}
+
+.card {
+  margin-top: 0px;
+  margin-bottom: 200px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  position: relative;
+  border-radius: 0.25rem;
+  box-shadow: 0 0 5px 2px rgba(0, 0, 0, 0.3);
+  background-color: #ffffff;
+  transform-style: preserve-3d;
+  transition: 150ms;
+  cursor: pointer;
+  transform: perspective(1000px) rotateY(var(--rotate-y, 0))
+    translateY(var(--translate-y, 0));
+
+  height: 500px;
+  width: 500px;
+}
+.card-grid {
+  display: grid;
+  align-items: center;
+  grid-template-columns: repeat(1);
+  gap: 5 rem;
+  margin-left: 500px;
+}
+
+.card:hover {
+  --translate-y: -5px;
+  box-shadow: 0 0 5px 2px rgba(0, 0, 0, 0.5);
+}
+
+.card.flip {
+  --rotate-y: 180deg;
+  background-color: rgb(164, 245, 132);
+}
+
+.card .front,
+.card .back {
+  position: absolute;
+  padding: 1rem;
+  backface-visibility: hidden;
+}
+
+.card .back {
+  transform: rotateY(180deg);
+  color: #0a071d;
+  font-size: xx-large;
+}
